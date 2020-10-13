@@ -1,0 +1,232 @@
+/*
+Theme Name: IsZen
+Author: Silvia Malavasi
+Description: blank basic theme
+Text Domain: iszen
+Version: 1.1.2
+*/
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+body{line-height:1}button{outline:0}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}q{display:inline;font-style:italic}q:before{content:'"';font-style:normal}q:after{content:'"';font-style:normal}textarea,input[type="text"],input[type="button"],input[type="submit"],input[type="reset"],input[type="search"],input[type="password"]{-webkit-appearance:none;appearance:none;border-radius:0}table{border-collapse:collapse;border-spacing:0}big{font-size:120%}small,sup,sub{font-size:80%}sup{vertical-align:super}sub{vertical-align:sub}kbd,tt{font-family:inherit;font-size:inherit}ins{text-decoration:underline}del,strike,s{text-decoration:line-through}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}.sticky{}.bypostauthor{}.wp-caption{}.wp-caption-text{}.gallery-caption{}.alignright{}.alignleft{}.aligncenter{}.screen-reader-text{clip:rect(1px, 1px, 1px, 1px);position:absolute !important}html,body{width:100%;padding:0;margin:0;position:relative;}img{width:100%;height:auto;align-self:center;vertical-align:top;}.clear{display:block;clear:both;}
+
+/* Tipografia */
+
+:root {
+    font-size: calc(2vh + ((1vw - 10.24px) * 0.03));
+	font-family: sans-serif;
+    line-height: 1em;
+	font-weight: 400;
+	color: #211f3d;
+	background-color: #fff;
+}
+h1 {
+    font-size: 3rem;
+    padding-bottom: 2em;
+}
+h2 {
+    font-size: 2.5rem;
+    padding-bottom: 2em;
+}
+h3 {
+	font-size: 1.5rem;
+    padding-bottom: 2em;
+}
+h4 {
+    font-size: 1.15rem;
+    padding-bottom: 1.5em;
+}
+p {
+    font-size: 1rem;
+    line-height: 1.1em;
+	padding-bottom: 0.8em;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+p a {
+	color: #004a92;
+	text-decoration: underline;
+}
+li {
+    line-height: 1em;
+    font-size: 1.05rem;
+    padding-bottom: 1.2rem;
+}
+li a {
+	color: inherit;
+}
+strong, bold {
+	font-weight: 700;
+}
+
+/* Menù */
+
+#menu {
+	display: none;
+}
+#menu {
+    margin-top: 6.7vh;
+    z-index: 1000;
+    position: relative;
+}
+#menu ul, #menu li {
+	list-style: none;
+    display: flex;
+}
+#menu a {
+    font-size: 0.9rem;
+}
+#menu li {
+	padding-bottom: 1.2rem;
+    margin-right: 0.7em;
+}
+#menu li:last-of-type {
+	margin-right: 0;
+}
+#menu .sub-menu {
+	position: absolute;
+	text-align: left;
+	transform: scaleY(0);
+	-webkit-transition: all 0s ease-in;
+		-o-transition: all 0s ease-in;
+		transition: all 0s ease-in;
+    transform-origin: 0 0;
+    padding-top: 3vh;
+    margin-left: 0.5em;
+    display: block;
+}
+#menu .sub-menu li a {
+    min-width: 12.7em;
+	padding-left: 0;
+}
+#menu .sub-menu li:first-of-type a {
+	padding-top: 1em;
+}
+#menu .sub-menu li:last-of-type a {
+	padding-bottom: 1em;
+}
+#menu li:hover > .sub-menu {
+	transform: scaleY(1);
+}
+#menu li.search {
+	display: none;
+}
+
+/* Menù mobile */
+
+#menu_mobile {
+  position: absolute;
+    top: 0;
+    right: 3.6rem;
+}
+#menuToggle {
+  display: block;
+  position: relative;
+    top: 3.7rem;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+  z-index: 5000;
+}
+#menuToggle a {
+    text-decoration: none;
+    color: #232323;
+    transition: color 0.3s ease;
+}
+#menuToggle a:hover {
+    color: #f30084;
+}
+#menuToggle>input {
+  display: block;
+    width: 2rem;
+    height: 1.5rem;
+    position: absolute;
+  cursor: pointer;
+  opacity: 0; 
+  z-index: 2;
+  -webkit-touch-callout: none;
+}
+#menuToggle span.burger {
+  display: block;
+  width: 2.1rem;
+    height: 0.56rem;
+  position: relative;
+  z-index: 1;
+  transform-origin: 0px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+#menuToggle svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#menuToggle span.burger:first-child {
+    transform-origin: 0% 0%;
+}
+#menuToggle span.burger:nth-last-child(2) {
+    transform-origin: 0.32rem 0.37rem;
+}
+#menuToggle>input:checked ~ span.burger {
+    opacity: 1;
+    transform: rotate(45deg);
+}
+#menuToggle>input:checked ~ span.burger:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+#menuToggle>input:checked ~ span.burger:nth-last-child(2) {
+    transform: rotate(-45deg);
+}
+#menu_mobile .cont_mob {
+    top: -3.7rem;
+    margin-left: 5.6rem;
+    position: absolute;
+    padding-top: 9rem;
+    padding-bottom: 5rem;
+    background: #293E79;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 50%;
+    transform: translate(0, 0) scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+#menu_mobile .cont_mob_inner {
+  list-style:none;
+    transform: scale(0, 0);
+    width: 100vw;
+    transform-origin: 0% 50%;
+    min-height: calc(100vh - 9rem - 5rem);
+}
+#menu_mobile div[class$="-container"] ul {
+  list-style:none;
+}
+#menu_mobile div[class$="-container"] li {
+  list-style:none;
+    font-size: 2rem;
+    font-weight: 900;
+    padding-bottom: 1.5rem;
+}
+#menu_mobile div[class$="-container"] li a {
+  padding-left: 9vw;
+}
+#menuToggle>input:checked ~ .cont_mob {
+    transform: translate(-100vw, 0) scaleX(1);
+}
+#menuToggle>input:checked ~ .cont_mob .cont_mob_inner {
+    transform: none;
+}
+
+
+/* Media queries */
+@media screen and (min-width: 992px) {
+#menu_mobile {
+	display: none;
+}
+#menu {
+	display: block;
+}
+}
